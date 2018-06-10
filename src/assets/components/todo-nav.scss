@@ -1,0 +1,21 @@
+.head-nav{
+    a {
+      color: $color-primary-dark-blue;
+      font-size: 1.5em;
+      text-decoration: none;
+      display: block;
+      padding: 24px 0;
+      flex: 1;
+      text-align: center;
+      &:active, &:hover, &:focus{
+        color: $color-fff;
+        box-shadow: 0 -5px $color-primary-dark-blue;
+        border-bottom: solid 5px $color-primary-dark-blue;
+      }
+      &.active{
+        color: $color-fff;
+        box-shadow: 0 -5px $color-primary-dark-blue;
+        border-bottom: solid 5px $color-primary-dark-blue;
+      }
+    }
+  }
