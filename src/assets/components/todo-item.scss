@@ -1,68 +1,97 @@
  //task wrap
  .todo-item{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-task-bg-light-gray;
+  border-radius: 3px;
+  padding: 24px;
+  position: relative;
+  &.stared{
     background-color: $color-task-bg;
-    border-radius: 3px;
-    padding: 24px;
-    & .todo-header{
-      display: flex;
+  }
+
+  & .todo-header{
+    display: flex;
+    &.d-f-row{
+      flex-direction: column;
     }
   }
 
-  .todo-check{
-    $checkbox-size: 24px;
-    width: 40px;
-    input {
+  & .handle{
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: move;
+    opacity: 0;
+  }
+  &:hover .handle {
+    opacity: 1;
+  }
+}
+
+.todo-check{
+  $checkbox-size: 24px;
+  width: 40px;
+  input {
+    position: absolute;
+    opacity: 0;
+    & + label{
+      position: relative;
+      cursor: pointer;
+      padding: 0;
+    }
+    & + label:before{
+      content: '';
+      display: inline-block;
+      vertical-align: text-top;
+      width: $checkbox-size;
+      height: $checkbox-size;
+      background-color: $color-fff;
+    }
+    &:hover + label:before, &:checked + label:before {
+      background: $color-primary-blue;
+    }
+      &:focus + label:before {
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+    }
+    &:checked + label:after {
+      content: '';
       position: absolute;
-      opacity: 0;
-      & + label{
-        position: relative;
-        cursor: pointer;
-        padding: 0;
-      }
-      & + label:before{
-        content: '';
-        display: inline-block;
-        vertical-align: text-top;
-        width: $checkbox-size;
-        height: $checkbox-size;
-        background-color: $color-fff;
-      }
-      &:hover + label:before, &:checked + label:before {
-        background: $color-primary-blue;
-      }
-       &:focus + label:before {
-        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
-      }
-      &:checked + label:after {
-        content: '';
-        position: absolute;
-        left: 4px;
-        top: 12px;
-        background: white;
-        width: 3px;
-        height: 3px;
-        box-shadow: 2px 0 0 white, 4px 0 0 white,
-          6px 0 0 white,
-          6px -2px 0 white,
-          6px -4px 0 white,
-          6px -6px 0 white,
-          6px -8px 0 white,
-          6px -10px 0 white,
-          6px -12px 0 white;
-        transform: rotate(45deg);
-      }
+      left: 4px;
+      top: 12px;
+      background: white;
+      width: 3px;
+      height: 3px;
+      box-shadow: 2px 0 0 white, 4px 0 0 white,
+        6px 0 0 white,
+        6px -2px 0 white,
+        6px -4px 0 white,
+        6px -6px 0 white,
+        6px -8px 0 white,
+        6px -10px 0 white,
+        6px -12px 0 white;
+      transform: rotate(45deg);
     }
   }
-  .todo-title{
-    flex: 1;
-    font-size: 1.5rem;
+}
+.todo-title{
+  flex: 1;
+  font-size: 1.5rem;
+  & span.completed{
+    text-decoration: line-through;
   }
-  .todo-control{
-
+}
+.todo-control{
+  & i.fas.fa-star {
+    color: $color-star;
   }
-  .todo-footer{
-    //checkbox width
-    padding-left: 40px;
+  & i.fa-pencil-alt {
+    color: $color-primary-blue;
   }
+}
+.todo-footer{
+  //checkbox width
+  padding-left: 40px;
+}
