@@ -71,12 +71,12 @@ export default {
       // this.getAllTasks()
     },
     getAllTasks () {
-      const api = 'http://localhost:5001/todos'
+      const api = 'https://f2ejsonserver.herokuapp.com/todos'
       let tasks = []
       this.todos = []
       this.$http.get(api).then((response) => {
         tasks = response.data
-        return this.$http.get('http://localhost:5001/sort')
+        return this.$http.get('https://f2ejsonserver.herokuapp.com/sort')
       }).then((response) => {
         const taskSort = response.data.sort
         if (taskSort) {
@@ -106,7 +106,7 @@ export default {
     },
     uploadSortData (sort) {
       const vm = this
-      const api = 'http://localhost:5001/sort'
+      const api = 'https://f2ejsonserver.herokuapp.com/sort'
       vm.$http.post(api, {sort: sort}).then((response) => {
 
       })

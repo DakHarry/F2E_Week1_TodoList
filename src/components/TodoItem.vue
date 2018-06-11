@@ -37,7 +37,7 @@ export default {
   methods: {
     updateStarState () {
       const vm = this
-      const api = `http://localhost:5001/todos/${vm.todo.id}`
+      const api = `https://f2ejsonserver.herokuapp.com/todos/${vm.todo.id}`
       const todo = {
         ...vm.todo
       }
@@ -52,7 +52,7 @@ export default {
     },
     updateStatus (field, state) {
       const vm = this
-      const api = `http://localhost:5001/todos/${vm.todo.id}`
+      const api = `https://f2ejsonserver.herokuapp.com/todos/${vm.todo.id}`
       const todo = {
         ...vm.todo
       }

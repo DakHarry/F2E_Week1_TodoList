@@ -69,7 +69,7 @@ export default {
       }
 
       if (this.isCreate) {
-        const api = 'http://localhost:5001/todos'
+        const api = 'https://f2ejsonserver.herokuapp.com/todos'
         task.stared = false
         task.completed = 'progress'
         task.timestamp = Math.floor(Date.now() / 1000)
@@ -79,7 +79,7 @@ export default {
           vm.closeTodo()
         })
       } else {
-        const api = `http://localhost:5001/todos/${task.id}`
+        const api = `https://f2ejsonserver.herokuapp.com/todos/${task.id}`
         vm.$http.put(api, task).then((response) => {
           console.log('update', response)
           vm.closeTodo()

@@ -20,8 +20,11 @@ npm run build
 
 #啟動json-server (方能使用新增修改功能)
 json-server todo.json -p 5001
+<<<<<<< HEAD
 
 #如無安裝json-server
 npm install -g json-server
 
+=======
+>>>>>>> 89d41a05feac546dab0a64eb83e082599b24c158
 ```
